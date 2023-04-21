@@ -9,8 +9,9 @@ I hope you enjoy it!
 
 # Blog Posts
 
-1. [Distributed Model Training](parallel_training/00_title)
-	1. [Distributed Data Parallel](parallel_training/01_ddp.md)
+1. [Distributed Model Training](distributed_model_training/00_distributed_model_training.md)
+	1. [Distributed Data Parallel](distributed_model_training/01_ddp.md)
+	2. [Fully Sharded Data Parallel](distributed_model_training/02_fdsp.md)
 
 
 
