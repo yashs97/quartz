@@ -1,4 +1,9 @@
-# Distributed Model Training
+---
+title: "Distributed Model Training"
+date: 2023-04-23
+tags:
+- deep_learning
+---
 
 Neural network models are getting bigger and bigger. To keep up with this trend, it's important to be able to scale the hardware that we use to train these models. One way to do this is to use multiple accelerators, such as GPUs or TPUs. There are several different ways to train a model on multiple accelerators. Data parallelism and model parallelism are the two main categories of parallelism techniques, and each specialized technique falls under one of these categories.
 
