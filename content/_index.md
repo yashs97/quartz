@@ -10,8 +10,10 @@ I hope you enjoy it!
 # Blog Posts
 
 1. [Distributed Model Training](distributed_model_training/00_distributed_model_training.md)
-	1. [Distributed Data Parallel](distributed_model_training/01_ddp.md)
-	2. [Fully Sharded Data Parallel](distributed_model_training/02_fdsp.md)
+	1. [Data Parallelism](01_dp.md)
+	2. [Model Parallelism](02_mp.md)
+	3. [Fully Sharded Data Parallel](03_fdsp.md)
+	4. [GSPMD](04_gspmd.md)
 
 
 
