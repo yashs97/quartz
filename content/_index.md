@@ -9,7 +9,7 @@ I'm always learning new things, and I'll(hopefully) share that here. My interest
 
 # Blog Posts
 
-1. [Distributed Model Training](distributed_model_training/00_distributed_model_training.md)
+1. Distributed Model Training
 	1. [Data and Model Parallelism](distributed_model_training/01_dp_and_mp.md)
 	2. [Fully Sharded Data Parallel](distributed_model_training/02_fdsp.md)
 	3. [GSPMD](distributed_model_training/03_gspmd.md)

@@ -1,8 +1,12 @@
+# Distributed Model Training
 
+## Distributed Model Training
+
+Neural network models are getting bigger and bigger. To keep up with this trend, it's important to be able to scale the hardware that we use to train these models. One way to do this is to use multiple accelerators, such as GPUs or TPUs. There are several different ways to train a model on multiple accelerators. Data parallelism and model parallelism are the two main categories of parallelism techniques, and each specialized technique falls under one of these categories.
 
 > This post is intended to provide a basic understanding of data and model parallelism. For a more in-depth treatment of these topics, please refer to Lillian Weng's excellent [article](https://lilianweng.github.io/posts/2021-09-25-train-large/).
 
-# Data Parallelism
+## Data Parallelism
 
 Data Parallelism is a technique to speed up the training process by sharding the data across multiple devices. The model is copied across several devices and each device receives a separate mini-batch of data. After the gradients are computed during backpropagation, all devices receive gradients from every other device. This global synchronization of gradients occurs once every n iterations where `n >= 1`. Every device sums all the gradients together and updates its local copy of weights. This summation is technically referred to as the `AllReduce` operation. A higher value of `n`  means that the gradients are synchronized less often which often leads to a faster training process but it can also lead to staleness of the model parameters.
 
@@ -13,11 +17,11 @@ At the end of the training process, the weights from each device are aggregated 
 
 A major drawback of Data Parallelism is that it is memory ineffiecient as each device stores a copy of the entire model.
 
-# Model Parallelism 
+## Model Parallelism 
 
 Model parallelism is a technique used to train machine learning models that are too large to fit on a single device. Model parameters are sharded across multiple devices and each device is responsible for the computation of that particular shard. Compared to Data Parallelism, memory footprint and computation workload of each device is lower. However, there is a significant increase in communication overhead as activations need to be communicated across devices. 
 
-## Pipeline Parallelism
+### Pipeline Parallelism
 
 Neural Networks consists of layers built on top of another which makes their sharding process trivial. However, if a system of these devices trains a network in a sequential manner it can lead to long idle times for some devices. Pipeline Parallelism can significantly reduces per device idle time and it follows the same principles as [instruction pipelining](https://en.wikipedia.org/wiki/Instruction_pipelining) in a single processor.
 Each device stores a layer (or more) and processes a different micro-batch of data in parallel. Every micro-batch of data undergoes both the forward and backward passes through each device.
