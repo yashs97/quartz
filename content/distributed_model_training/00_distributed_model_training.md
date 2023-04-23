@@ -6,5 +6,5 @@ Neural network models are getting bigger and bigger. To keep up with this trend,
 In this series, I'll be mainly covering advanced techniques like FSDP and GSPMD are but the first post will be a brief overview of Data and Model Parallelism is.
 
 1. [Data and Model Parallelism](01_dp_and_mp.md)
-2. [Full Sharded Data Parallel](distributed_model_training/03_fsdp.md)
+2. [Full Sharded Data Parallel](02_fsdp.md)
 3. [GSPMD](03_gspmd.md)
