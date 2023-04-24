@@ -10,9 +10,9 @@ I'm always learning new things, and I'll(hopefully) share that here. My interest
 # Blog Posts
 
 * Distributed Model Training
-	- [Data and Model Parallelism](/content/distributed_model_training/01_dp_and_mp.md)
-	- [Fully Sharded Data Parallel](/content/distributed_model_training/02_fdsp.md)
-	- [GSPMD](/content/distributed_model_training/03_gspmd.md)
+	- [Data and Model Parallelism](distributed_model_training/01_dp_and_mp.md)
+	- [Fully Sharded Data Parallel](distributed_model_training/02_fdsp.md)
+	- [GSPMD](distributed_model_training/03_gspmd.md)
 
 
 
