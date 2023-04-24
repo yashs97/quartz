@@ -27,7 +27,7 @@ Model parallelism is a technique used to train machine learning models that are 
 ### Pipeline Parallelism
 
 Neural Networks consists of layers built on top of another which makes their sharding process trivial. However, if a system of these devices trains a network in a sequential manner it can lead to long idle times for some devices. Pipeline Parallelism can significantly reduces per device idle time and it follows the same principles as [instruction pipelining](https://en.wikipedia.org/wiki/Instruction_pipelining) in a single processor.
-Each device stores a layer (or more) and processes a different micro-batch of data in parallel. Every micro-batch of data undergoes both the forward and backward passes through each device.
+Each device stores a layer (or more) and processes a different micro-batch of data in parallel. Every micro-batch of data undergoes both the forward and backward passes through each device. The number of workers that the model is split over is commonly known as pipeline depth.
 
 Gradients can be aggregated either in a synchronous or an asynchronous manner at the end.
 In [GPipe](https://ai.googleblog.com/2019/03/introducing-gpipe-open-source-library.html), gradients are aggregated and applied synchronously for each micro-batch of data at the end.
