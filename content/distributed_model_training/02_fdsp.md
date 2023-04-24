@@ -7,8 +7,7 @@ tags:
 
 Fully Sharded Data Parallel (FSDP) is a distributed training algorithm that partitions both the dataset and model parameters across devices. FSDP can be classified as a data parallel algorithm since each device performs the computation on its local subset of the training data for each micro-batch
 
-![FSDP](images/fsdp.png)
-															Fig 1: FSDP Workflow. (Image [Source](https://engineering.fb.com/2021/07/15/open-source/fsdp/))
+![FSDP](/distributed_model_training/images/fsdp.png)*Fig 1: FSDP Workflow. (Image [Source](https://engineering.fb.com/2021/07/15/open-source/fsdp/))*
 
 The workflow of FSDP is as follows:
 1. Each device is responsible for a shard of the model parameters and receives a micro-batch of data for training.

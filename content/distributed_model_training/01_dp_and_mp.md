@@ -13,8 +13,7 @@ Neural network models are getting bigger and bigger. To keep up with this trend,
 
 Data Parallelism is a technique to speed up the training process by sharding the data across multiple devices. The model is copied across several devices and each device receives a separate mini-batch of data. After the gradients are computed during backpropagation, all devices receive gradients from every other device. This global synchronization of gradients occurs once every n iterations where `n >= 1`. Every device sums all the gradients together and updates its local copy of weights. This summation is technically referred to as the `AllReduce` operation. A higher value of `n`  means that the gradients are synchronized less often which often leads to a faster training process but it can also lead to staleness of the model parameters.
 
-![DP](images/ddp.png)
-											Fig 1: Data Parallel Training Process. (Image [Source](https://engineering.fb.com/2021/07/15/open-source/fsdp/))
+![DP](/distributed_model_training/images/ddp.png)*Fig 1: Data Parallel Training Process. (Image [Source](https://engineering.fb.com/2021/07/15/open-source/fsdp/))*
 
 At the end of the training process, the weights from each device are aggregated to create a global model.
 
@@ -32,8 +31,7 @@ Each device stores a layer (or more) and processes a different micro-batch of da
 Gradients can be aggregated either in a synchronous or an asynchronous manner at the end.
 In [GPipe](https://ai.googleblog.com/2019/03/introducing-gpipe-open-source-library.html), gradients are aggregated and applied synchronously for each micro-batch of data at the end.
 
-![GPipe](images/gpipe.png) 
-								Fig 2: Naive MP vs GPipe (Image [source](https://ai.googleblog.com/2019/03/introducing-gpipe-open-source-library.html))
+![GPipe](/distributed_model_training/images/gpipe.png)*Fig 2: Naive MP vs GPipe (Image [source](https://ai.googleblog.com/2019/03/introducing-gpipe-open-source-library.html))*
 
 [PipeDream](https://www.pdl.cmu.edu/PDL-FTP/BigLearning/sosp19-final271.pdf) is an example of asynchronous gradient accumulation and aims to reduce the bubble time highlighted in the above image. It does so by alternating between the forward and backward passes for each worker after an initial phase called startup time. PipeDream uses a technique called weight stashing where each device tracks several model versions to make sure that the same version of model weights are used for each forward and backward pass. [PipeDream-2BW](https://arxiv.org/pdf/2006.09503.pdf) further saves memory by stashing only two versions of a model.
 
